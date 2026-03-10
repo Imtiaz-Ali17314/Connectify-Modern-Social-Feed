@@ -1,0 +1,48 @@
+/* Social Media Project */
+.app-container {
+  display: flex;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.post-list {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.post-card {
+  margin: 20px 50px;
+}
+
+.create-post {
+  width: 80%;
+  margin: 2rem 10%;
+}
+
+.hashtag {
+  margin: 0 5px;
+}
+
+.reactions {
+  margin: 0 5px;
+}
+
+.spinner {
+  margin: 10% 0;
+}
+
+.welcome-message {
+  margin: 100px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.footer {
+  background-color: #2c2c2c;
+}
