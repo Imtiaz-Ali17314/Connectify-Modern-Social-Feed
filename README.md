@@ -1,5 +1,5 @@
 <div align="center">
-  <h1 align="center">Connectify | Modern Social Feed</h1>
+  <h1 align="center">🌐 Connectify | Modern Social Feed</h1>
 
   <p align="center">
     An impressive React application showcasing advanced frontend architecture, dynamic theming, and complex state management.
