@@ -58,26 +58,7 @@ To get a local copy up and running, follow these simple steps.
     ```sh
     npm run dev
     ```
-
-<!-- DEPLOYMENT -->
-## Deployment Guide (Vercel / Netlify)
-
-1. Connect your GitHub repository to Vercel or Netlify.
-2. Set the build command to `npm run build`.
-3. Set the output directory to `dist`.
-4. Deploy! The `vite.config.js` is already configured for optimal production builds.
-
-<!-- RECORDING DEMO -->
-## Recording the 2-Min Demo Video
-
-To record a solid 2-minute demo video for recruiters or LinkedIn:
-1. Start at the `/login` page and explain the simulated authentication system.
-2. Click "Login as Demo User" and show the seamless redirect to the protected Home Feed.
-3. Toggle the Dark/Light mode from the header to demonstrate state management and CSS variables.
-4. Refresh the page to show the Bootstrap Placeholder Loading Skeletons in action.
-5. Navigate to the About App and Profile pages via the sidebar to highlight routing.
-6. Deliberately type a bad URL to showcase the 404 Error page. 
-
+    
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
