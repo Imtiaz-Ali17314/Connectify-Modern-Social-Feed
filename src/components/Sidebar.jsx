@@ -1,102 +1,74 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ThemeContext } from "../store/ThemeContext";
 
 export default function Sidebar() {
+  const { theme } = useContext(ThemeContext);
+  const location = useLocation();
+
+  const getLinkClass = (path) => {
+    const isActive = location.pathname === path;
+    if (theme === "dark") {
+      return `nav-link text-white ${isActive ? "active bg-primary" : ""}`;
+    }
+    return `nav-link ${isActive ? "active text-white bg-primary" : "text-dark"}`;
+  };
+
   return (
     <div
-      className="d-flex flex-column flex-shrink-0 p-3"
-      style={{ width: "200px", backgroundColor: "#2c2c2c", height: "100vh" }}
+      className="d-flex flex-column flex-shrink-0 p-3 shadow-sm border-end"
+      style={{ 
+        width: "240px", 
+        backgroundColor: theme === "dark" ? "#1e1e1e" : "#f8f9fa", 
+        height: "100vh",
+        position: "sticky",
+        top: 0
+      }}
     >
-      <a
-        href="/"
-        className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
-        style={{ color: "white" }}
-      >
-        <svg
-          className="bi pe-none me-2"
-          width="40"
-          height="32"
-          aria-hidden="true"
-        >
-          <use xlinkHref="#bootstrap"></use>
-        </svg>
-        <span className="fs-4">Sidebar</span>
-      </a>
-      <hr style={{ borderColor: "gray" }} />
+      <div className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+        <span className={`fs-5 fw-bold ${theme === "dark" ? "text-white" : "text-dark"}`}>Menu</span>
+      </div>
+      <hr style={{ borderColor: theme === "dark" ? "gray" : "#dee2e6" }} />
 
-      <ul className="nav nav-pills flex-column mb-auto">
+      <ul className="nav nav-pills flex-column mb-auto gap-2">
         <li className="nav-item">
-          <Link to="/" className="nav-link text-white" aria-current="page">
-            <svg
-              className="bi pe-none me-2"
-              width="16"
-              height="16"
-              aria-hidden="true"
-            >
-              <use xlinkHref="#home"></use>
-            </svg>
-            Home
+          <Link to="/" className={getLinkClass("/")} aria-current="page">
+            🏠 Home Feed
           </Link>
         </li>
         <li>
-          <Link to="/create-post" className="nav-link text-white">
-            <svg
-              className="bi pe-none me-2"
-              width="16"
-              height="16"
-              aria-hidden="true"
-            >
-              <use xlinkHref="#create-posts"></use>
-            </svg>
-            Create Posts
+          <Link to="/create-post" className={getLinkClass("/create-post")}>
+            ✍️ Create Post
+          </Link>
+        </li>
+        <li>
+          <Link to="/profile" className={getLinkClass("/profile")}>
+            👤 Profile
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" className={getLinkClass("/about")}>
+            ℹ️ About App
           </Link>
         </li>
       </ul>
 
-      <hr style={{ borderColor: "gray" }} />
+      <hr style={{ borderColor: theme === "dark" ? "gray" : "#dee2e6" }} />
 
-      <div className="dropdown">
-        <a
-          href="#"
-          className="d-flex align-items-center text-decoration-none dropdown-toggle"
-          style={{ color: "white" }}
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+      <div className="dropdown mt-auto">
+        <Link
+          to="/profile"
+          className={`d-flex align-items-center text-decoration-none ${theme === "dark" ? "text-white" : "text-dark"}`}
         >
           <img
-            src="https://github.com/mdo.png"
+            src="/images/demo-user.jpg"
             alt=""
             width="32"
             height="32"
             className="rounded-circle me-2"
           />
-          <strong>mdo</strong>
-        </a>
-        <ul className="dropdown-menu text-small shadow">
-          <li>
-            <a className="dropdown-item" href="#">
-              New project...
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Settings
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Profile
-            </a>
-          </li>
-          <li>
-            <hr className="dropdown-divider" />
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Sign out
-            </a>
-          </li>
-        </ul>
+          <strong>Demo User</strong>
+        </Link>
       </div>
     </div>
   );

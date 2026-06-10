@@ -12,11 +12,13 @@ function App() {
 
   return (
     <PostListProvider>
-      <div className="app-container">
+      <div className="app-container d-flex">
         <Sidebar />
-        <div className="content">
+        <div className="content d-flex flex-column flex-grow-1" style={{ height: "100vh", overflow: "hidden" }}>
           <Header />
-          {isLoading ? <LoaderSpinner /> : <Outlet />}
+          <main className="flex-grow-1 overflow-auto">
+            {isLoading ? <LoaderSpinner /> : <Outlet />}
+          </main>
           <Footer />
         </div>
       </div>
