@@ -2,7 +2,9 @@ import { createContext, useEffect, useReducer, useState } from "react";
 
 export const PostList = createContext({
   postList: [],
+  isLoading: false,
   addPost: () => {},
+  updatePost: () => {},
   deletePost: () => {},
 });
 
@@ -16,17 +18,29 @@ const postListReducer = (currPostList, action) => {
     newPostList = action.payload.posts;
   } else if (action.type === "ADD_POST") {
     newPostList = [action.payload, ...currPostList];
+  } else if (action.type === "UPDATE_POST") {
+    newPostList = currPostList.map((post) =>
+      post.id === action.payload.id ? { ...post, ...action.payload } : post
+    );
   }
   return newPostList;
 };
 
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
+  const [isLoading, setIsLoading] = useState(false);
 
   const addPost = (post) => {
     dispatchPostList({
       type: "ADD_POST",
       payload: post,
+    });
+  };
+
+  const updatePost = (updatedPost) => {
+    dispatchPostList({
+      type: "UPDATE_POST",
+      payload: updatedPost,
     });
   };
 
@@ -48,25 +62,29 @@ const PostListProvider = ({ children }) => {
     });
   };
 
-  // useEffect(() => {
-  //   const controller = new AbortController();
-  //   const signal = controller.signal;
-  //   setLoading(true);
-  //   fetch("https://dummyjson.com/posts", { signal })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       addInitialPosts(data.posts);
-  //       setLoading(false);
-  //     });
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    setIsLoading(true);
+    fetch("https://dummyjson.com/posts", { signal })
+      .then((res) => res.json())
+      .then((data) => {
+        addInitialPosts(data.posts);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        if (err.name !== "AbortError") {
+          setIsLoading(false);
+        }
+      });
 
-  //   return () => {
-  //     console.log("Cleaning Up useEffect...");
-  //     controller.abort();
-  //   };
-  // }, []);
+    return () => {
+      controller.abort();
+    };
+  }, []);
 
   return (
-    <PostList.Provider value={{ postList, addPost, deletePost }}>
+    <PostList.Provider value={{ postList, isLoading, addPost, updatePost, deletePost }}>
       {children}
     </PostList.Provider>
   );

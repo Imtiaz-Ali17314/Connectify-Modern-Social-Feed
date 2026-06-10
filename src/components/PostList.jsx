@@ -1,12 +1,18 @@
+import { useContext } from "react";
 import Post from "./Post";
 import WelcomeMessage from "./WelcomeMessage";
-import { useLoaderData } from "react-router-dom";
+import LoaderSpinner from "./LoaderSpinner";
+import { PostList as PostListContext } from "../store/post-list";
 
 const PostList = () => {
-  const postList = useLoaderData();
+  const { postList, isLoading } = useContext(PostListContext);
+
+  if (isLoading) {
+    return <LoaderSpinner />;
+  }
 
   return (
-    <div className="post-list">
+    <div className="post-list container py-4">
       {postList.length === 0 && <WelcomeMessage />}
       {postList.map((post) => (
         <Post key={post.id} post={post} />
@@ -15,11 +21,4 @@ const PostList = () => {
   );
 };
 
-export const loadPostList = () => {
-  return fetch("https://dummyjson.com/posts")
-    .then((res) => res.json())
-    .then((data) => {
-      return data.posts;
-    });
-};
 export default PostList;
