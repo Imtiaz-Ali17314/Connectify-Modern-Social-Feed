@@ -2,7 +2,7 @@
   <h1 align="center">Connectify | Modern Social Feed</h1>
 
   <p align="center">
-    A portfolio-ready React application showcasing advanced frontend architecture, dynamic theming, and complex state management.
+    An impressive React application showcasing advanced frontend architecture, dynamic theming, and complex state management.
     <br />
     <br />
     <img src="public/images/dashboard.JPG" alt="Connectify Dashboard" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
@@ -44,7 +44,7 @@ To get a local copy up and running, follow these simple steps.
 
 1.  **Clone the repo**
     ```sh
-    git clone https://github.com/your_username/Connectify-Social-App.git
+    git clone https://github.com/Imtiaz-Ali17314/Connectify-Modern-Social-Feed.git
     ```
 2.  **Navigate into the directory**
     ```sh
