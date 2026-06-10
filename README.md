@@ -4,10 +4,8 @@
   <p align="center">
     A portfolio-ready React application showcasing advanced frontend architecture, dynamic theming, and complex state management.
     <br />
-    <a href="https://your-live-demo-link.vercel.app"><strong>View Live Demo »</strong></a>
     <br />
-    <br />
-    <a href="https://youtu.be/your-video-link">Watch 2-Min Demo Video</a>
+    <img src="public/images/dashboard.JPG" alt="Connectify Dashboard" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
   </p>
 </div>
 
