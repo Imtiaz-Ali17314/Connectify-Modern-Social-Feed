@@ -5,7 +5,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./routes/App.jsx";
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
-import CreatePost, { createPostAction } from "./components/CreatePost.jsx";
+import CreatePost from "./components/CreatePost.jsx";
 import PostList from "./components/PostList.jsx";
 import Login from "./routes/Login.jsx";
 import About from "./routes/About.jsx";
