@@ -18,19 +18,19 @@ const Profile = () => {
           <div className="card shadow-sm border-0">
             <div className="card-body p-5">
               <div className="d-flex align-items-center mb-4">
-                <img 
-                  src="/images/demo-user.jpg" 
-                  alt="Profile" 
-                  className="rounded-circle me-4 border border-3 border-primary" 
-                  width="100" 
-                  height="100" 
+                <img
+                  src="./images/demo-user.jpg"
+                  alt="Profile"
+                  className="rounded-circle me-4 border border-3 border-primary"
+                  width="100"
+                  height="100"
                 />
                 <div>
                   <h2 className="fw-bold mb-1">Demo User</h2>
                   <p className="text-muted mb-0">@demouser • Joined Jan 2026</p>
                 </div>
               </div>
-              
+
               <div className="row mb-4 text-center g-3">
                 <div className="col-4">
                   <div className="p-3 border rounded bg-body-tertiary">

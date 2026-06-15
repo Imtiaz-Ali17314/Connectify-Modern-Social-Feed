@@ -1,10 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bootstrap.min.js";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./routes/App.jsx";
-import { createHashRouter, RouterProvider, Navigate } from "react-router-dom"; // createBrowserRouter ki jagah createHashRouter
+import { createHashRouter, RouterProvider, Navigate } from "react-router-dom";
 import CreatePost from "./components/CreatePost.jsx";
 import PostList from "./components/PostList.jsx";
 import Login from "./routes/Login.jsx";

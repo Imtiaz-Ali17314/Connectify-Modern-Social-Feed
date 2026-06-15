@@ -17,9 +17,9 @@ export default function Sidebar() {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 shadow-sm border-end"
-      style={{ 
-        width: "240px", 
-        backgroundColor: theme === "dark" ? "#1e1e1e" : "#f8f9fa", 
+      style={{
+        width: "240px",
+        backgroundColor: theme === "dark" ? "#1e1e1e" : "#f8f9fa",
         height: "100vh",
         position: "sticky",
         top: 0
@@ -61,7 +61,7 @@ export default function Sidebar() {
           className={`d-flex align-items-center text-decoration-none ${theme === "dark" ? "text-white" : "text-dark"}`}
         >
           <img
-            src="/images/demo-user.jpg"
+            src="./images/demo-user.jpg"
             alt=""
             width="32"
             height="32"
