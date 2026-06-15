@@ -17,7 +17,7 @@ import ThemeProvider from "./store/ThemeContext.jsx";
 const ProtectedRoute = ({ children }) => {
   return (
     <AuthContext.Consumer>
-      {({ isAuthenticated }) => (isAuthenticated ? children : <Navigate to="/login" />)}
+      {({ isAuthenticated }) => (isAuthenticated ? children : <Navigate to="/" />)}
     </AuthContext.Consumer>
   );
 };
