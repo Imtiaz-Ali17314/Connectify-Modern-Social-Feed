@@ -1,10 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap/dist/js/bootstrap.bootstrap.min.js";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./routes/App.jsx";
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import { createHashRouter, RouterProvider, Navigate } from "react-router-dom"; // createBrowserRouter ki jagah createHashRouter
 import CreatePost from "./components/CreatePost.jsx";
 import PostList from "./components/PostList.jsx";
 import Login from "./routes/Login.jsx";
@@ -22,20 +22,37 @@ const ProtectedRoute = ({ children }) => {
   );
 };
 
-const router = createBrowserRouter([
+// ✅ YEH SAHI ROUTER CONFIGURATION HAI
+const router = createHashRouter([
   {
-    path: "/home",
+    path: "/",
     element: <App />,
     errorElement: <NotFound />,
     children: [
-      { path: "/home", element: <ProtectedRoute><PostList /></ProtectedRoute> },
       {
-        path: "/create-post",
+        index: true,  // Default route
+        element: <Navigate to="/home" replace />
+      },
+      {
+        path: "home",  // Relative path (absolute nahi)
+        element: <ProtectedRoute><PostList /></ProtectedRoute>
+      },
+      {
+        path: "create-post",  // Relative path
         element: <ProtectedRoute><CreatePost /></ProtectedRoute>,
       },
-      { path: "/about", element: <About /> },
-      { path: "/profile", element: <ProtectedRoute><Profile /></ProtectedRoute> },
-      { path: "/login", element: <Login /> },
+      {
+        path: "about",  // Relative path
+        element: <About />
+      },
+      {
+        path: "profile",  // Relative path
+        element: <ProtectedRoute><Profile /></ProtectedRoute>
+      },
+      {
+        path: "login",  // Relative path
+        element: <Login />
+      },
     ],
   },
 ]);

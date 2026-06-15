@@ -7,8 +7,8 @@ import { Outlet, useNavigation } from "react-router-dom";
 import LoaderSpinner from "../components/LoaderSpinner.jsx";
 
 function App() {
-  const navigate = useNavigation();
-  const isLoading = navigate.state === "loading";
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
 
   return (
     <PostListProvider>
