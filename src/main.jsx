@@ -17,18 +17,18 @@ import ThemeProvider from "./store/ThemeContext.jsx";
 const ProtectedRoute = ({ children }) => {
   return (
     <AuthContext.Consumer>
-      {({ isAuthenticated }) => (isAuthenticated ? children : <Navigate to="/" />)}
+      {({ isAuthenticated }) => (isAuthenticated ? children : <Navigate to="/home" />)}
     </AuthContext.Consumer>
   );
 };
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/home",
     element: <App />,
     errorElement: <NotFound />,
     children: [
-      { path: "/", element: <ProtectedRoute><PostList /></ProtectedRoute> },
+      { path: "/home", element: <ProtectedRoute><PostList /></ProtectedRoute> },
       {
         path: "/create-post",
         element: <ProtectedRoute><CreatePost /></ProtectedRoute>,
